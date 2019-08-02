@@ -19,7 +19,7 @@ document.getElementById('add').addEventListener('click',
     // タスク追加
     creatDOM(task.value);
     // dataをローカルストレージに保存
-    localStorage.setItem('task', JSON.stringify(data));
+    dataUpdated();
     // taskのvalueを初期化
     task.value = "";
   }
@@ -54,4 +54,8 @@ function creatDOM( value ){
 
   // listの子要素として追加
   document.getElementById('list').appendChild(list);
+}
+
+function dataUpdated(){
+  localStorage.setItem('task',JSON.stringify(data));
 }
