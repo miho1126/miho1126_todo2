@@ -16,6 +16,7 @@ document.getElementById('add').addEventListener('click',
     // creatDOMの中のものをまとめて書いた奴。
     creatDOM(document.getElementById('task').value);
     localStorage.setItem('task', JSON.stringify(data));
+    document.getElementById('task').value = "";
   }
 );
 // 取り出す
