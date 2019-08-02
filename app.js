@@ -31,6 +31,21 @@ function creatDOM( value ){
   let list = document.createElement('li');
   // リストタグないにvalueを格納
   list.textContent = value;
+
+  let button = document.createElement('button');
+  button.textContent = '削除';
+  list.appendChild(button);
+
+  button.addEventListener('click', function(){
+    //削除ボタンを消すのがremove
+    this.parentNode.remove();
+    // 削除の前にあるaaaaaaを消すためにその文字を見つける。data.indexOf(this.parentNode.textContent);を下のカッコ内に入れる。
+    // データをspliceで配列を削除する。項目の中から一致するものを探し出す方法。数字のマイナスは後ろから、マイナスなければ前から２個目をとる。
+    data.splice(data.indexOf(this.parentNode.textContent.slice( 0, -2)),1);
+    // データを再度保存
+    localStorage.setItem('task',JSON.stringify(data));
+  })
+
   // listの子要素として追加
   document.getElementById('list').appendChild(list);
 }
