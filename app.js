@@ -11,12 +11,17 @@ if (localStorage.getItem('task')){
 // クリックイベント
 document.getElementById('add').addEventListener('click',
   function(){
+    // task代入
+    const task = document.getElementById('task');
     // 預ける
-    data.push(document.getElementById('task').value);
-    // creatDOMの中のものをまとめて書いた奴。
-    creatDOM(document.getElementById('task').value);
+    // タスクの列を配列dataに追加
+    data.push(task.value);
+    // タスク追加
+    creatDOM(task.value);
+    // dataをローカルストレージに保存
     localStorage.setItem('task', JSON.stringify(data));
-    document.getElementById('task').value = "";
+    // taskのvalueを初期化
+    task.value = "";
   }
 );
 // 取り出す
